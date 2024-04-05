@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0D0D0D;
+    scroll-behavior: smooth;
+    
+}
+.custom-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200vh;
+}
+
+.custom-text {
+  line-height: 100%;
+  margin: 0;
+  width: 100%;
+  background: linear-gradient(to right, #b6b6b6, #b6b6b6) no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 0%;
+  transition: background-size cubic-bezier(.1,.5,.5,1) 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 48px;
+}
+
+.custom-text .highlight {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  transform-origin: center;
+  transition: all cubic-bezier(.1,.5,.5,1) 0.4s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+
+.custom-text:hover .highlight {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  
+  
+}
+
+.custom-text a {
+  text-decoration: none;
+  color: inherit;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-container {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%; /* Ensure the container takes the full width */
+}
+
+.marquee {
+  animation: marquee 15s linear infinite;
+  font-size: 4rem; /* Adjust the font size as needed */
+  color: white;
+}
+.hover\:description:hover {
+  opacity: 1;
+}
